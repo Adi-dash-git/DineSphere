@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* Page Layout */
+.page-container {
+    padding: 30px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Table Container */
+.table-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+/* Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table thead {
+    background: #ecf0f1;
+}
+
+.admin-table th {
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+}
+
+.admin-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.admin-table tr:hover {
+    background: #f9fbfd;
+}
+
+/* Restaurant Name */
+.name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Image */
+.restaurant-img {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* Rating */
+.rating {
+    background: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    text-decoration: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #2c80b4;
+}
+
+.btn-menu {
+    background: #1abc9c;
+    color: #fff;
+}
+
+.btn-menu:hover {
+    background: #159a80;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .actions {
+        flex-direction: column;
+    }
+
+    .restaurant-img {
+        width: 60px;
+        height: 45px;
+    }
+}

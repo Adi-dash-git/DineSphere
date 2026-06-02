@@ -1,0 +1,239 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+
+    <div class="admin-container">
+        <h3>Welcome to Admin Home 👨‍💼</h3>
+
+        <div class="actions">
+            <a href="open_add_restaurant" class="btn">Add New Restaurant</a>
+            <a href="open_show_restaurant" class="btn btn-secondary">Show Restaurants</a>
+        </div>
+    </div>
+
+</body>
+
+</html> {% endcomment %}
+
+
+{% comment %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">DineSphere</h2>
+        <ul class="menu">
+            <li class="active">Dashboard</li>
+            <li><a href="{% url 'open_add_restaurant' %}">Add Restaurant</a></li>
+            <li><a href="{% url 'open_show_restaurant' %}">Show Restaurants</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Revenue</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <h1>Welcome Admin 👨‍💼</h1>
+        <p class="subtitle">Manage your restaurants efficiently</p>
+<!-- Dashboard Stats -->
+<div class="dashboard-stats">
+
+    <div class="stat-card users">
+        <h3>Total Users</h3>
+        <p>{{ total_users }}</p>
+    </div>
+
+    <div class="stat-card restaurants">
+        <h3>Total Restaurants</h3>
+        <p>{{ total_restaurants }}</p>
+    </div>
+
+    <div class="stat-card orders">
+        <h3>Orders</h3>
+        <p>0</p>
+    </div>
+
+    <div class="stat-card revenue">
+        <h3>Revenue</h3>
+        <p>₹0</p>
+    </div>
+
+</div>
+
+<div class="dashboard-cards">
+    <div class="card card-users">
+        <h4>Total Users</h4>
+        <p>{{ total_users }}</p>
+    </div>
+
+    <div class="card card-restaurants">
+        <h4>Total Restaurants</h4>
+        <p>{{ total_restaurants }}</p>
+    </div>
+
+</div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <a href="{% url 'open_add_restaurant' %}" class="btn primary">➕ Add Restaurant</a>
+            <a href="{% url 'open_show_restaurant' %}" class="btn secondary">📋 Show Restaurants</a>
+        </div>
+    </main>
+</div>
+
+</body>
+</html> 
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'admin.css' %}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">DineSphere</h2>
+
+        <ul class="menu">
+            <li class="active"><i class="fas fa-chart-line"></i> Dashboard</li>
+            {% comment %} <li> <a href="{% url 'open_show_restaurant' %}"><i class="fas fa-store"></i>Restaurants</a></li> {% endcomment %}
+            <li><i class="fas fa-store"></i> Restaurants</li>
+            <li><i class="fas fa-users"></i> Users</li>
+            <li><i class="fas fa-box"></i> Orders</li>
+            <li><i class="fas fa-coins"></i> Revenue</li>
+            <li><i class="fas fa-cog"></i> Settings</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <header class="topbar">
+            <h3>Welcome Admin 👨‍💼</h3>
+            <div class="profile">
+                <i class="fas fa-bell"></i>
+                <img src="https://i.pravatar.cc/40" alt="Admin">
+            </div>
+        </header>
+
+        <!-- STATS -->
+        <section class="stats">
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h4>Total Users</h4>
+                <p>2</p>
+                <span class="green">+12% this month</span>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-box"></i>
+                <h4>Total Orders</h4>
+                <p>0</p>
+                <span class="green">+8% this month</span>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-hourglass-half"></i>
+                <h4>Pending Orders</h4>
+                <p>0</p>
+                <span class="orange">Needs attention</span>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-coins"></i>
+                <h4>Total Revenue</h4>
+                <p>₹0</p>
+                <span class="green">+15% this month</span>
+            </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <section class="actions">
+            <a href="{% url 'open_add_restaurant' %}" class="btn primary">
+                <i class="fas fa-plus"></i> Add Restaurant
+            </a>
+            <a href="{% url 'open_show_restaurant' %}" class="btn secondary">
+                <i class="fas fa-eye"></i> View Restaurants
+            </a>
+        </section>
+
+        <!-- TABLE + ACTIVITY -->
+        <section class="grid">
+            <div class="table-box">
+                <h4>Recent Orders</h4>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="4" class="empty">No orders yet</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="activity">
+                <h4>Recent Activity</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle green"></i> New order received</li>
+                    <li><i class="fas fa-user blue"></i> New user registered</li>
+                    <li><i class="fas fa-truck green"></i> Order #1234 delivered</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="{% static 'js/admin.js' %}"></script>
+</body>
+</html> 

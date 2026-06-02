@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+{% comment %} <body>
+    <h1>Sign-In Failed</h1>
+    <p>Invalid username or password. Please try again.</p>
+</body> {% endcomment %}
+
+<body>
+
+    <div class="error-container">
+        <h1>Sign-In Failed</h1>
+        <p>Invalid username or password. Please try again.</p>
+
+        <a href="{% url 'signin' %}" class="btn">Try Again</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Main Container */
+.customer-container {
+    width: 95%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 32px;
+    color: #f1f5f9;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h2 span {
+    color: #2dd4bf;
+}
+
+.header p {
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+/* Restaurant Grid */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+/* Card */
+.restaurant-card {
+    background: linear-gradient(
+        180deg,
+        rgba(45, 212, 191, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.35);
+}
+
+/* Image */
+.image-box {
+    height: 185px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.restaurant-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Card Content */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.cuisine {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.rating {
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #fbbf24;
+}
+
+/* View Menu Button */
+.btn-primary {
+    display: inline-block;
+    padding: 11px 22px;
+    background: linear-gradient(135deg, #2dd4bf, #22c55e);
+    color: #022c22;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #fb7185, #f97316);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 10px 25px rgba(251, 113, 133, 0.4);
+}
+
+/* Logout */
+.logout-section {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn-logout {
+    padding: 11px 26px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(239, 68, 68, 0.45);
+}

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    min-height: 100vh;
+    padding: 30px;
+}
+
+/* Container */
+.menu-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.menu-header h2 span {
+    color: #ef4444;
+}
+
+.cart-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Card */
+.menu-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.35s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image */
+.image-box {
+    height: 180px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Content */
+.menu-content {
+    padding: 18px;
+}
+
+.menu-content h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.desc {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+/* Meta */
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ef4444;
+}
+
+.veg {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.nonveg {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Button */
+.add-btn {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}

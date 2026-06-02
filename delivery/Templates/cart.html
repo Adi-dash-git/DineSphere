@@ -1,0 +1,98 @@
+ {% comment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello {{username}}
+    <!-- show current menu -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for item in itemList %}
+                <tr>
+                    <td>
+                        <img src="{{ item.picture }}">
+                    </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    {% comment %} <td> delete item </td> {% endcomment %}  
+                {% comment %} </tr>
+            {% endfor %}
+        </tbody>
+        <h2>Total price : {{total_price}}</h2>
+        <form action="{% url 'checkout' username %}">
+            <input type="submit" value="CHECK OUT" />
+        </form>
+    </table>
+</body>
+</html> {% endfor %} {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+
+    <title>Cart</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Hello {{username}}</h1>
+
+        <h2>Your Cart</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in itemList %}
+                <tr>
+                    <td>
+                        <img src="{{ item.picture }}" alt="{{ item.name }}">
+                    </td>
+
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>₹ {{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="total">Total Price : ₹ {{total_price}}</h2>
+
+        <form action="{% url 'checkout' username %}">
+            <input type="submit" value="CHECK OUT" class="checkout-btn"/>
+        </form>
+
+    </div>
+
+</body>
+</html>

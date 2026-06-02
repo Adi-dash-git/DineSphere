@@ -1,0 +1,86 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'update_restaurant' restaurant.id %}" method="post">
+        {% csrf_token %}
+        <label>Restaurant name </label>
+        <input type="text" name="name" value="{{restaurant.name}}">
+        <br><br>
+        <label>Picture url </label>
+        <input type="text" name="picture" value="{{restaurant.picture}}">
+        <br><br>
+        <label>Cuisine </label>
+        <input type="text" name="cuisine" value="{{restaurant.cuisine}}">
+        <br><br>
+        <label>Rating</label>
+        <input type="number" name="rating" min="0" max="5" step="0.5" value="{{restaurant.rating}}">
+        <br><br>
+        <br><br>
+        <button type="submit">Update Restaurant</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Update Restaurant</title>
+
+    <link rel="stylesheet" href="{% static 'update_restaurant.css' %}">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>✏️ Update Restaurant</h2>
+
+    <form action="{% url 'update_restaurant' restaurant.id %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Restaurant Name</label>
+            <input type="text" name="name" value="{{ restaurant.name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Picture URL</label>
+            <input type="text" name="picture" value="{{ restaurant.picture }}">
+        </div>
+
+        <div class="form-group">
+            <label>Cuisine</label>
+            <input type="text" name="cuisine" value="{{ restaurant.cuisine }}">
+        </div>
+
+        <div class="form-group">
+            <label>Rating</label>
+            <input type="number" name="rating" min="0" max="5" step="0.5" value="{{ restaurant.rating }}">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-save">Update Restaurant</button>
+            <a href="{% url 'open_show_restaurant' %}" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

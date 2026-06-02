@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff6b6b,
+        #f06595,
+        #845ef7,
+        #5c7cfa
+    );
+}
+
+.checkout-container{
+    width: 90%;
+    max-width: 850px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    color: white;
+}
+
+h1{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 10px;
+
+    background: linear-gradient(to right, #fff, #ffe066);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f8f9fa;
+    font-weight: 400;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background-color: rgba(255,255,255,0.1);
+}
+
+table thead{
+    background: linear-gradient(to right, #845ef7, #5c7cfa);
+}
+
+table th{
+    padding: 18px;
+    font-size: 18px;
+    color: white;
+}
+
+table td{
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: #f1f3f5;
+}
+
+table tr:hover{
+    background-color: rgba(255,255,255,0.08);
+    transition: 0.3s;
+}
+
+.total{
+    margin-top: 25px;
+    text-align: right;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #ffe066;
+}
+
+#rzp-button{
+    width: 100%;
+    margin-top: 30px;
+
+    padding: 16px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        to right,
+        #ff922b,
+        #ff6b6b
+    );
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+#rzp-button:hover{
+    transform: translateY(-3px) scale(1.01);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+
+    background: linear-gradient(
+        to right,
+        #ff6b6b,
+        #f06595
+    );
+}
+
+.error{
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+
+    background-color: rgba(255,0,0,0.15);
+
+    color: #fff5f5;
+
+    font-size: 18px;
+}

@@ -1,0 +1,165 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- show current menu -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item name</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Is veg/</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for item in itemList %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <img src="{{ item.picture }}">
+                    </td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.vegeterian }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <!-- add food item (form) -->
+    <h2>Add Menu Item</h2>
+    <form action="{% url 'update_menu' restaurant.id %}" method="post">
+        {% csrf_token %}
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <label for="vegeterian">Vegetarian:</label>
+        <input type="checkbox" id="vegeterian" name="vegeterian"><br><br>
+
+        <label for="picture">Image URL:</label>
+        <input type="url" id="picture" name="picture"><br><br>
+
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Manage Menu</title>
+
+    <link rel="stylesheet" href="{% static 'manage_menu.css' %}">
+</head>
+<body>
+
+<div class="page-container">
+
+    <h1>📋 Menu Management</h1>
+
+    <!-- Current Menu -->
+    <div class="table-container">
+        <h2>Current Menu Items</h2>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Veg</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itemList %}
+                <tr>
+                    <td class="name">{{ item.name }}</td>
+
+                    <td>
+                        <img src="{{ item.picture }}" class="item-img">
+                    </td>
+
+                    <td class="desc">{{ item.description }}</td>
+
+                    <td>₹ {{ item.price }}</td>
+
+                    <td>
+                        {% if item.vegeterian %}
+                            <span class="veg yes">Yes</span>
+                        {% else %}
+                            <span class="veg no">No</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Menu Item -->
+    <div class="form-container">
+        <h2>➕ Add Menu Item</h2>
+
+        <form action="{% url 'update_menu' restaurant.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Item Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" name="price" step="0.01" required>
+            </div>
+
+            <div class="form-group checkbox">
+                <input type="checkbox" name="vegeterian" id="vegeterian">
+                <label for="vegeterian">Vegetarian</label>
+            </div>
+
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" name="picture">
+            </div>
+
+            <button type="submit" class="btn-add">Add Item</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

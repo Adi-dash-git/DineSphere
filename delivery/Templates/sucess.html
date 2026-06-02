@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+{% comment %} <body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>You have successfully signed in.</p>
+    
+</body> {% endcomment %}
+
+<body>
+
+    <div class="welcome-container">
+        <h1>Welcome, {{ user.username }} 👋</h1>
+        <p>You have successfully signed in.</p>
+
+        <div class="actions">
+            <a href="{% url 'open_add_restaurant' %}" class="btn">Add Restaurant</a>
+            <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

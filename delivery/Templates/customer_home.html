@@ -1,0 +1,118 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+
+    <div class="customer-container">
+        <h3>Welcome, {{ username }} 👋</h3>
+        <p>Explore restaurants and place your orders</p>
+
+        <div class="actions">
+            
+        
+        <a class="btn">View Restaurants</a> 
+
+
+
+            <table border="1">
+        <thead>
+            <tr>
+                <th>Restaurant name</th>
+                <th>Picture</th>
+                <th>Cuisine</th>
+                <th>Rating</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for r in restaurantList %}
+                <tr>
+                    <td>{{ r.name }}</td>
+                    <td>
+                        <img src="{{ r.picture }}">
+                    </td>
+                    <td>{{ r.cuisine }}</td>
+                    <td>{{ r.rating }}</td>
+                    <td>
+                        
+                        <a href="{% url 'view_menu' r.id username %}">
+                            View Menu
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+            <a class="btn btn-secondary">Logout</a>
+        </div>
+    </div>
+
+</body>
+
+</html>   {% endcomment %}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'stylecustomer.css' %}">
+</head>
+
+<body>
+
+<div class="customer-container">
+    <header class="header">
+        <h2>Welcome, <span>{{ username }}</span> 👋</h2>
+        <p>Discover top restaurants & order your favorite food</p>
+    </header>
+
+    <div class="restaurant-grid">
+        {% for r in restaurantList %}
+        <div class="restaurant-card">
+            <div class="image-box">
+                <img src="{{ r.picture }}" alt="{{ r.name }}">
+            </div>
+
+            <div class="card-content">
+                <h3>{{ r.name }}</h3>
+                <p class="cuisine">{{ r.cuisine }}</p>
+
+                <div class="rating">
+                    ⭐ {{ r.rating }}
+                </div>
+
+                <a href="{% url 'view_menu' r.id username %}" class="btn-primary">
+                    View Menu 🍽️
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="logout-section">
+        <a href="#" class="btn-logout">Logout</a>
+    </div>
+</div>
+
+</body>
+</html> 
+
+
+
+
+
